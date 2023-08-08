@@ -4,9 +4,8 @@ class Lotto {
   #numbers;
 
   constructor(numbers) {
-    Validator.validateNumber(numbers);
-
     this.#numbers = numbers.split(",");
+    Validator.validateNumber(this.#numbers);
   }
 
   setBonusNumber(number) {

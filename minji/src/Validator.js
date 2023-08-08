@@ -16,15 +16,13 @@ class Validator {
   }
 
   static validateNumber(numbers) {
-    const numberArr = numbers.split(",");
-
-    numberArr.forEach((number, i) => {
+    numbers.forEach((number, i) => {
       if (i > 5) throw new Error(LOTTO_ERROR.length);
       if (!Number(number)) throw new Error(LOTTO_ERROR.number);
       if (number > 45 || number < 1) throw new Error(LOTTO_ERROR.range);
     });
 
-    if (new Set(numberArr).size !== numberArr.length) {
+    if (new Set(numbers).size !== numbers.length) {
       throw new Error(LOTTO_ERROR.duplicate);
     }
   }
