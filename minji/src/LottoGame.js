@@ -23,7 +23,7 @@ class LottoGame {
   }
 
   #buyLottos(money) {
-    const n = money / 1000;
+    const n = money / LOTTO_PRICE;
     for (let i = 0; i < n; i += 1) {
       this.#lottos.push(Random.pickUniqueNumbersInRange(1, 45, 6));
     }
@@ -74,7 +74,7 @@ class LottoGame {
 
     this.#result.rate = (
       (Math.abs(this.#lottos.length * LOTTO_PRICE - moneyReturn) /
-        (this.#lottos.length * 1000)) *
+        (this.#lottos.length * LOTTO_PRICE)) *
       100
     ).toFixed(1);
 
