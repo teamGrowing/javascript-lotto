@@ -1,11 +1,16 @@
-const { LOTTO_ERROR, BONUS_ERROR, MONEY_ERROR } = require("./constant");
+const {
+  LOTTO_ERROR,
+  BONUS_ERROR,
+  MONEY_ERROR,
+  LOTTO_PRICE,
+} = require("./constant");
 
 class Validator {
   static validateMoney(money) {
     if (!Number(money)) {
       throw new Error(MONEY_ERROR.number);
     }
-    if (money % 1000 !== 0) {
+    if (money % LOTTO_PRICE !== 0) {
       throw new Error(MONEY_ERROR.amount);
     }
   }
